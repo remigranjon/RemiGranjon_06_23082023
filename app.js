@@ -6,6 +6,7 @@ const app = express();
 
 
 const userRoutes = require('./routes/user');
+const sauceRoutes = require('./routes/sauce');
 
 
 mongoose.connect('mongodb+srv://remigranjon:wlQiVxaeVtJoJ787@cluster0.2ql35w1.mongodb.net/?retryWrites=true&w=majority',
@@ -27,5 +28,6 @@ app.use((req, res, next) => {
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', sauceRoutes);
 
 module.exports = app;
